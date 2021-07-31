@@ -1,0 +1,27 @@
+<div class="container" style=" background-image: linear-gradient(0deg, #182848 79%, #4b6cb7 100%);height: 100%;">
+    <div class="row">
+        <div class="col-md-3" style="margin: 0px;">
+        </div>
+        <div class="col-9" style="color: white;">
+            <label style="margin-top: 20%;">เพลย์ลิสต์</label><br>
+            <h1 style="font-size: 20vm;font-weight: bold;">{{namePlaylist}}</h1>
+        </div>
+    </div>
+    <p-table  [value]="song" selectionMode="single" [(selection)]="selectedProduct1" dataKey="code">
+        <ng-template pTemplate="header">
+            <tr > 
+                <th style="width: 5%;text-align: right;">#</th>  
+                <th style="width: 80%;">ชื่อ</th>  
+                <th style="text-align: center;"></th>            
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-songs let-rowIndex="rowIndex">
+            <tr class="myDIV" (click)="highlight(rowIndex)" [ngClass]="{'row-accessories': songs.isPlay}">
+    
+                <td  style="text-align: center;">{{rowIndex+1}}</td>
+                 <td ng-click="onInit();"><img [src]="songs.cover" width="50" ><label style="margin-left: 3%;">{{songs.title}}</label></td>
+                <td><button [ngClass]="{'p-button-danger':songs.isLike,'p-button-secondary p-button-outlined':!songs.isLike ||songs.isLike==false}" (click)="like(rowIndex)" pButton pRipple type="button" icon="pi pi-heart" class="p-button-rounded"></button></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

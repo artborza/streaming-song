@@ -1,0 +1,30 @@
+<div class="container" style=" background-image: linear-gradient(0deg, #182848 96%, #4b6cb7 100%);">
+    <div class="card" style=" background-image: linear-gradient(0deg, #182848 96%, #4b6cb7 100%);">
+        <p-dataView #dv [value]="song" [paginator]="true" [rows]="50" filterBy="title"
+        layout="grid" >
+            <ng-template pTemplate="header" style="width: 123px;"> 
+                <div class="p-d-flex p-flex-column">
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-search"></i>
+                        <input type="search" pInputText placeholder="Search by Name" (input)="dv.filter($any($event.target).value)" placeholder="Search keyword">
+                    </span>
+                
+                </div>
+            </ng-template>
+            <ng-template let-product pTemplate="gridItem" >
+                
+                <img  src="{{product.cover}}" routerLinkActive="active" [routerLink]="['/app/song/'+product.id]" (click)=select(product.id) style="border-radius: 15px;margin: 2%;width: 21%;">
+
+                    <!-- <div class="p-col-4 p-md-1">
+                        <div class="product-grid-item card">
+                            <div class="product-grid-item-top">
+                            </div>
+                            <div class="product-grid-item-content">
+                                <div class="product-name">{{product.title}}</div>
+                                <div class="product-description">{{product.title}}</div>
+                            </div>
+                        </div>
+                    </div> -->
+            </ng-template>
+        </p-dataView>
+</div>

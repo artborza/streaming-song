@@ -1,0 +1,33 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar style="font-family: Pridi;color: white;margin: 1rem 2rem 0rem 2rem;font-size: 2rem;">Streaming</mat-toolbar>
+    <mat-nav-list>
+      <div *ngFor="let menuGroup of menuList">
+        <div *ngIf="menuGroup.menus.length == 0">
+          <a mat-list-item class="line" routerLinkActive="active" [routerLink]="['/app/'+menuGroup.group.code]">
+            <mat-icon style="color: white;margin-right: 8%;">{{ menuGroup.group.icon  }}</mat-icon>
+            <span style="color: white;">{{ menuGroup.group.name  }}</span>
+          </a>
+        </div>
+        <!-- <div *ngIf="menuGroup.menus.length > 0" [ngClass]="{'group-menu-selected': menuGroupSelected==menuGroup.group.code}">
+          <a mat-list-item class="line" (click)="selectMenu(menuGroup.group)">
+            <mat-icon>{{menuGroupSelected==menuGroup.group.code? 'keyboard_arrow_down': 'keyboard_arrow_right'}}</mat-icon>
+            <span>{{ menuGroup.group.name }}</span>
+          </a>
+          <div *ngIf="menuGroupSelected==menuGroup.group.code">
+            <a *ngFor="let menu of menuGroup.menus" mat-list-item class="line" routerLinkActive="active" [routerLink]="['/app/'+menuGroup.group.code+'/'+menu.code]">
+              <span style="color: tomato;">{{ menu.code }}</span>
+            </a>
+          </div>
+        </div> -->
+      </div>
+      <hr style="margin:9% 8%">
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content style="height: 2000px;">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
