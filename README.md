@@ -1,6 +1,17 @@
 # StreamingSong
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.3.
+## Installation
+<ul>
+  <li>Bootstrap</li>
+  <li>[Angular Music / Audio Player](https://www.npmjs.com/package/ang-music-player#installation)</li>
+  <li>[primeNg](https://www.primefaces.org/primeng/)</li>
+  <li>Angular Material</li>
+</ul>
+ Bootstrap
+
+
+
 
 ## Development server
 
